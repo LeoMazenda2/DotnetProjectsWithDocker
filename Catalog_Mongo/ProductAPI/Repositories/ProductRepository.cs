@@ -31,6 +31,7 @@ public class ProductRepository : IProductRepository
             FilterDefinition<Product> filter = Builders<Product>.Filter
                 .ElemMatch(p => p.Name, name);
 
+           
             return await _context.Products.Find(filter).ToListAsync();
         }
 
@@ -67,4 +68,3 @@ public class ProductRepository : IProductRepository
                 && deleteResult.DeletedCount > 0;
         }
     }
-}
